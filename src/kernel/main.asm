@@ -1,11 +1,19 @@
-org 0x7C00
+org 0x0
 bits 16
 
 %define ENDL 0x0D, 0x0A
 
 start:
-	jmp main
+	mov si, msg_hello
+	call puts
 
+	cli
+	hlt
+
+.halt:
+	cli
+	hlt
+	
 ; Prints a string
 ; Params: 
 ;	-ds:si points to string
